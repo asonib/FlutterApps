@@ -4,12 +4,21 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  int num = 0;
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
 
+class MyAppState extends State<MyApp> {
+  int num = 0;
   void _printAnswer() {
     print('Button Pressed ' + num.toString());
-    num += 1;
+    setState(() {
+      num += 1;
+    });
   }
 
   // This widget is the root of your application.
