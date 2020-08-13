@@ -4,53 +4,118 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MyAppState();
-  }
-}
-
-class MyAppState extends State<MyApp> {
-  int num = 0;
-  void _printAnswer() {
-    print('Button Pressed ' + num.toString());
-    setState(() {
-      num += 1;
-    });
-  }
-
+class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  var desc = Text(
+    'A place for all developers to connect. Create a profile and show your talent to the world, help other developers by solving complex problems posted in the forum',
+    style: TextStyle(
+      fontSize: 15,
+      fontFamily: 'Roboto',
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Quiz App'),
-        ),
-        body: Container(
-          width: double.infinity,
-          margin: EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              Text(
-                "Hello App",
-                style: TextStyle(fontSize: 20),
-                textAlign: TextAlign.center,
-              ),
-              RaisedButton(
-                child: Text('Press'),
-                onPressed: _printAnswer,
-                padding: EdgeInsets.all(5),
-              ),
-              Text(
-                num.toString(),
-              )
-            ],
-          ),
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Basic Layout',
         ),
       ),
-    );
+      body: Container(
+        width: double.infinity,
+        margin: EdgeInsets.all(10),
+        padding: EdgeInsets.all(1),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Text(
+                'Developer Portfolio',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Expanded(
+              child: desc,
+            ),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.star, color: Colors.green[500]),
+                      Icon(Icons.star, color: Colors.green[500]),
+                      Icon(Icons.star, color: Colors.green[500]),
+                      Icon(Icons.star, color: Colors.black),
+                      Icon(Icons.star, color: Colors.black),
+                    ],
+                  ),
+                  Text(
+                    '170 Reviews',
+                    style: TextStyle(fontSize: 15),
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Icon(
+                          Icons.account_balance_wallet,
+                          color: Colors.blue[300],
+                        ),
+                        Row(
+                          children: <Widget>[Text('Login')],
+                        ),
+                        Row(
+                          children: <Widget>[Text('Click Me!')],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Icon(
+                          Icons.account_balance_wallet,
+                          color: Colors.blue[300],
+                        ),
+                        Row(
+                          children: <Widget>[Text('Register')],
+                        ),
+                        Row(
+                          children: <Widget>[Text('Click Me!')],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Icon(
+                          Icons.account_balance_wallet,
+                          color: Colors.blue[300],
+                        ),
+                        Row(
+                          children: <Widget>[Text('Developers')],
+                        ),
+                        Row(
+                          children: <Widget>[Text('Click Me!')],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    ));
   }
 }
