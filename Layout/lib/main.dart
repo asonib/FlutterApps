@@ -6,7 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  var desc = Text(
+  final desc = Text(
     'A place for all developers to connect. Create a profile and show your talent to the world, help other developers by solving complex problems posted in the forum',
     style: TextStyle(
       fontSize: 15,
@@ -29,6 +29,10 @@ class MyApp extends StatelessWidget {
         padding: EdgeInsets.all(1),
         child: Column(
           children: <Widget>[
+            Image.asset(
+              'icon.jpeg',
+              width: 100,
+            ),
             Expanded(
               child: Text(
                 'Developer Portfolio',
@@ -36,8 +40,10 @@ class MyApp extends StatelessWidget {
               ),
             ),
             Expanded(
+                child: Container(
+              padding: EdgeInsets.all(10),
               child: desc,
-            ),
+            )),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -73,25 +79,6 @@ class MyApp extends StatelessWidget {
                         Row(
                           children: <Widget>[Text('Login')],
                         ),
-                        Row(
-                          children: <Widget>[Text('Click Me!')],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Column(
-                      children: <Widget>[
-                        Icon(
-                          Icons.account_balance_wallet,
-                          color: Colors.blue[300],
-                        ),
-                        Row(
-                          children: <Widget>[Text('Register')],
-                        ),
-                        Row(
-                          children: <Widget>[Text('Click Me!')],
-                        ),
                       ],
                     ),
                   ),
@@ -105,8 +92,18 @@ class MyApp extends StatelessWidget {
                         Row(
                           children: <Widget>[Text('Developers')],
                         ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Icon(
+                          Icons.account_balance_wallet,
+                          color: Colors.blue[300],
+                        ),
                         Row(
-                          children: <Widget>[Text('Click Me!')],
+                          children: <Widget>[Text('Register')],
                         ),
                       ],
                     ),
