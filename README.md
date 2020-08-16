@@ -1,7 +1,7 @@
 # FlutterApps
 Repository for Flutter Applications
 
-**Basic Quiz App**
+**DevPort Application**
 ```
 Using Simple Widgets
 ```
