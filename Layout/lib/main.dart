@@ -1,7 +1,20 @@
+import 'package:Layout/developers.dart';
 import 'package:flutter/material.dart';
+import './login.dart';
+import './Register.dart';
+import './developers.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    title: 'Navigation Basics',
+    initialRoute: '/',
+    routes: {
+      '/': (context) => MyApp(),
+      '/login': (context) => Login(),
+      '/register': (context) => Register(),
+      '/developers': (context) => Developers(),
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,8 +29,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text(
           'Basic Layout',
@@ -26,7 +38,6 @@ class MyApp extends StatelessWidget {
       body: Container(
         width: double.infinity,
         margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(1),
         child: Column(
           children: <Widget>[
             Image.asset(
@@ -77,7 +88,14 @@ class MyApp extends StatelessWidget {
                           color: Colors.blue[300],
                         ),
                         Row(
-                          children: <Widget>[Text('Login')],
+                          children: <Widget>[
+                            RaisedButton(
+                              child: Text('Login'),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/login');
+                              },
+                            )
+                          ],
                         ),
                       ],
                     ),
@@ -89,8 +107,11 @@ class MyApp extends StatelessWidget {
                           Icons.account_balance_wallet,
                           color: Colors.blue[300],
                         ),
-                        Row(
-                          children: <Widget>[Text('Developers')],
+                        RaisedButton(
+                          child: Text('Developers'),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/developers');
+                          },
                         ),
                       ],
                     ),
@@ -102,8 +123,11 @@ class MyApp extends StatelessWidget {
                           Icons.account_balance_wallet,
                           color: Colors.blue[300],
                         ),
-                        Row(
-                          children: <Widget>[Text('Register')],
+                        RaisedButton(
+                          child: Text('Register'),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
                         ),
                       ],
                     ),
@@ -114,6 +138,6 @@ class MyApp extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }
